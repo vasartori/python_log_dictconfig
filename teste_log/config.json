@@ -1,0 +1,39 @@
+{
+ "loggers": {
+  "teste_log.faznada": {
+   "level": "DEBUG",
+   "handlers": [
+    "rotating"
+   ]
+  },
+  "teste_log.outraclasse": {
+   "level": "INFO",
+   "handlers": [
+    "rotating2"
+   ]
+  }
+ },
+ "version": 1,
+ "disable_existing_loggers": false,
+ "handlers": {
+  "rotating2": {
+   "level": "DEBUG",
+   "class": "logging.handlers.TimedRotatingFileHandler",
+   "formatter": "simple",
+   "filename": "/tmp/teste2.log",
+   "when": "midnight"
+  },
+  "rotating": {
+   "level": "DEBUG",
+   "class": "logging.handlers.TimedRotatingFileHandler",
+   "formatter": "simple",
+   "filename": "/tmp/teste.log",
+   "when": "midnight"
+  }
+ },
+ "formatters": {
+  "simple": {
+   "format": "[%(asctime)s] [%(levelname)s] [%(module)s]: %(message)s"
+  }
+ }
+}
